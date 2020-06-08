@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:local="clr-namespace:Xamnotes.ViewModels"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Xamnotes.MainPage"
+             x:Name="Main"
+             NavigationPage.HasNavigationBar="True"
+             >
+
+    <!-- Bindung zum ViewModel-->
+    <ContentPage.BindingContext>
+        <local:MainPageViewModel />
+    </ContentPage.BindingContext>
+
+    <!-- Zentriere den Titel in der Actionbar in die Mitte-->
+    <NavigationPage.TitleView>
+        <Label Text="XamNotes" HorizontalTextAlignment="Center" TextColor="White" FontSize="22"/>
+    </NavigationPage.TitleView>
+
+    <!-- Haupt-Layout der App -->
+    <StackLayout>
+        <!-- View-Element wo die Notizen in einer Liste dargestellt werden-->
+        <CollectionView x:Name="collectionView"
+                        ItemsSource="{Binding AllNotes}"
+                        SelectedItem="{Binding SelectedNote, Mode=TwoWay}" >
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate x:Name="xo">
+                    <!-- Kapseln der Notiz und Styling-->
+                    <Grid Padding="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Frame OutlineColor="Black">
+                            <!-- In einem SwipeView setzen um nach links wischen zu können-->
+                            <SwipeView>
+                                
+                                <SwipeView.RightItems>
+                                    <SwipeItems>
+                                        <!-- Entfernen Button um Notiz zu entfernen -->
+                                        <SwipeItem Text="Entfernen" 
+                                               BackgroundColor="Red"                                       
+                                               Command="{Binding Path=BindingContext.EraseCommand, Source={x:Reference Name=Main}}"
+                                               CommandParameter="{Binding .}"
+                                                   />
+                                        </SwipeItems>
+                                </SwipeView.RightItems>
+                                
+                                <!-- Noch ein Grid wegen Styling-->
+                                <Grid BackgroundColor="White">
+                                    
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <!-- Die eigentliche Notiz besteht aus einem Bild, einem Text und einem Datum-->
+                                    <Image Grid.Column="0" Source="{Binding Image}"></Image>
+
+                                    <StackLayout Margin="10,0,0,0"  Grid.Column="1">
+
+                                        <Label Grid.Column="0"
+                                           Text="{Binding DateTime, StringFormat='{}{0:dd.MM.yyyy u\\m h:mm}'}"
+                                       />
+
+                                        <Label Grid.Column="0" 
+                                           Text="{Binding Content}"
+                                           FontSize="18"
+                                        />
+                                    </StackLayout>
+                                    
+                                </Grid>
+
+                            </SwipeView>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Grid Padding="5">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60*" />
+                <ColumnDefinition Width="20*" />
+            </Grid.ColumnDefinitions>
+            <!-- Eingabefunktion um Text einzugeben und zu adden-->
+            <Editor x:Name="editor" HorizontalOptions="Fill" Grid.Column="0" Margin="10" Placeholder="Neue Notiz" Text="{Binding EditorContent, Mode=TwoWay}" MaxLength="50"/>
+            <Button Text="+" Margin="5, 5, 10, 5" Grid.Column="1" BackgroundColor="Black" TextColor="White" Command="{Binding SaveCommand}" FontSize="32"/>
+
+        </Grid>
+
+    </StackLayout>
+
+
+</ContentPage>

@@ -1,0 +1,14 @@
+D:\Coding\Xamnotes\Xamnotes\bin\Debug\netstandard2.0\Xamnotes.deps.json
+D:\Coding\Xamnotes\Xamnotes\bin\Debug\netstandard2.0\Xamnotes.dll
+D:\Coding\Xamnotes\Xamnotes\bin\Debug\netstandard2.0\ref\Xamnotes.dll
+D:\Coding\Xamnotes\Xamnotes\bin\Debug\netstandard2.0\Xamnotes.pdb
+D:\Coding\Xamnotes\Xamnotes\obj\Debug\netstandard2.0\Xamnotes.csprojAssemblyReference.cache
+D:\Coding\Xamnotes\Xamnotes\obj\Debug\netstandard2.0\App.xaml.g.cs
+D:\Coding\Xamnotes\Xamnotes\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
+D:\Coding\Xamnotes\Xamnotes\obj\Debug\netstandard2.0\Xamnotes.AssemblyInfoInputs.cache
+D:\Coding\Xamnotes\Xamnotes\obj\Debug\netstandard2.0\Xamnotes.AssemblyInfo.cs
+D:\Coding\Xamnotes\Xamnotes\obj\Debug\netstandard2.0\Xamnotes.csproj.CoreCompileInputs.cache
+D:\Coding\Xamnotes\Xamnotes\obj\Debug\netstandard2.0\XamlC.stamp
+D:\Coding\Xamnotes\Xamnotes\obj\Debug\netstandard2.0\Xamnotes.dll
+D:\Coding\Xamnotes\Xamnotes\obj\Debug\netstandard2.0\ref\Xamnotes.dll
+D:\Coding\Xamnotes\Xamnotes\obj\Debug\netstandard2.0\Xamnotes.pdb
